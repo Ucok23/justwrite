@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Editing Book</h1>
+  </div>
+  <div class="card-body">
+    <%= render 'form', book: @book %>
+  </div>
+  <div class="card-footer">
+    <%= render 'shared/button', text: 'Show', path: @book, variant: 'secondary' %>
+    <%= render 'shared/button', text: 'Back', path: books_path, variant: 'ghost' %>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<%= form_with(model: book) do |form| %>
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit "Update Book", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+

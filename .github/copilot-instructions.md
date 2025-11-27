@@ -21,7 +21,7 @@ Justwrite is a minimalist application for writing books, inspired by 37signals' 
 This is a standard Ruby on Rails application. Here's a quick overview of the key components:
 
 - **Backend**: Ruby on Rails 8.1
-- **Frontend**: Hotwire (Turbo, Stimulus), Tailwind CSS, and Importmap for JavaScript module management.
+- **Frontend**: Hotwire (Turbo, Stimulus) and Importmap for JavaScript module management.
 - **Database**: SQLite3 is used for development, test, and production.
 - **Background Jobs**: Solid Queue for processing background tasks.
 - **Caching**: Solid Cache for efficient data caching.
@@ -34,7 +34,7 @@ This is a standard Ruby on Rails application. Here's a quick overview of the key
 - `app/views`: Holds the templates for rendering the user interface.
 - `app/controllers`: Manages the application's flow and handles user requests.
 - `app/javascript`: Contains the application's JavaScript files, managed by Importmap.
-- `app/assets/stylesheets`: Holds the application's stylesheets, which are processed by Tailwind CSS.
+- `app/assets/stylesheets`: Holds the application's stylesheets.
 
 ### Important Files
 
@@ -48,7 +48,7 @@ This is a standard Ruby on Rails application. Here's a quick overview of the key
 ### Getting Started
 
 1. **Install Dependencies**: Run `bundle install` to install the required gems.
-2. **Start the Development Server**: Use `./bin/dev` to start the Rails server and Tailwind CSS watcher.
+2. **Start the Development Server**: Use `./bin/dev` to start the Rails server.
 
 ### Running Tests
 
@@ -58,6 +58,13 @@ This is a standard Ruby on Rails application. Here's a quick overview of the key
 ### Linting
 
 - **Run RuboCop**: `bundle exec rubocop`
+
+## UI/UX Conventions
+
+- **Pure CSS**: We use pure CSS for styling. Do not use any CSS frameworks.
+- **Profesional Standard UI/UX**: We aim for a professional standard UI/UX.
+- **Consistent Block/Elements**: We use consistent block/elements.
+- **Consistent Spacing and Layout**: We use consistent spacing and layout.
 
 ## Conventions and Patterns
 
@@ -77,7 +84,7 @@ This is a standard Ruby on Rails application. Here's a quick overview of the key
 
 - **Hotwire**: We use Turbo Frames and Streams to create a responsive and fast user experience.
 - **Stimulus**: We use Stimulus for client-side interactivity.
-- **Tailwind CSS**: We use Tailwind CSS for styling.
+- **Markdown Live Preview**: A Stimulus controller (`markdown_preview_controller.js`) is used to provide a live preview of Markdown content. It uses the `marked` library, which is included via importmap.
 
 ## Integration Points
 

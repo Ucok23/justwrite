@@ -1,0 +1,22 @@
+<div data-controller="markdown-preview">
+  <h1>Markdown Live Preview</h1>
+
+  <div>
+    <div>
+      <label for="editor">Markdown Input</label>
+      <textarea
+        id="editor"
+        rows="25"
+        data-markdown-preview-target="source"
+        data-action="input->markdown-preview#update"
+      ># Hello, world!
+
+Write some **Markdown** here.</textarea>
+    </div>
+    <div>
+      <label>Live Preview</label>
+      <div data-markdown-preview-target="preview">
+      </div>
+    </div>
+  </div>
+</div>

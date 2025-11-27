@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1><%= @chapter.title %></h1>
+  <%= link_to 'Edit Chapter', edit_book_chapter_path(@book, @chapter), class: 'btn' %>
+</div>
+
+<div class="chapter-content">
+  <%= simple_format(@chapter.content) %>
+</div>
+
+<p><%= link_to 'Back to book', @book %></p>
