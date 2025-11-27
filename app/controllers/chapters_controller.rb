@@ -1,6 +1,7 @@
 class ChaptersController < ApplicationController
   before_action :set_book
   before_action :set_chapter, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_admin, except: [ :show ]
 
   def show
   end
@@ -37,14 +38,14 @@ class ChaptersController < ApplicationController
   private
 
   def set_book
-    @book = Book.find(params[:book_id])
+    @book = Book.friendly.find(params[:book_id])
   end
 
   def set_chapter
-    @chapter = @book.chapters.find(params[:id])
+    @chapter = @book.chapters.friendly.find(params[:id])
   end
 
   def chapter_params
-    params.require(:chapter).permit(:title, :content)
+    params.require(:chapter).permit(:title, :content, :status, :notes)
   end
 end

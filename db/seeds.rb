@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+User.find_or_create_by!(email: ENV.fetch("ADMIN_EMAIL", "admin@justwrite.com")) do |user|
+  user.name = ENV.fetch("ADMIN_NAME", "Admin")
+  user.password = ENV.fetch("ADMIN_PASSWORD", "password")
+  user.admin = true
+end

@@ -1,8 +1,13 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_admin, except: [ :index, :show ]
 
   def index
-    @books = Book.all
+    if current_user&.admin?
+      @books = Book.all
+    else
+      @books = Book.where(published: true)
+    end
   end
 
   def show
@@ -40,10 +45,10 @@ class BooksController < ApplicationController
   private
 
   def set_book
-    @book = Book.find(params[:id])
+    @book = Book.friendly.find(params[:id])
   end
 
   def book_params
-    params.require(:book).permit(:title)
+    params.require(:book).permit(:title, :author, :description, :cover_image_url, :published)
   end
 end

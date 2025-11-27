@@ -10,20 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_27_125321) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_27_161705) do
   create_table "books", force: :cascade do |t|
+    t.string "author"
+    t.string "cover_image_url"
     t.datetime "created_at", null: false
+    t.text "description"
+    t.boolean "published"
+    t.string "slug"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_books_on_slug", unique: true
   end
 
   create_table "chapters", force: :cascade do |t|
     t.integer "book_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
+    t.text "notes"
+    t.integer "position"
+    t.string "slug"
+    t.string "status"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.integer "word_count"
     t.index ["book_id"], name: "index_chapters_on_book_id"
+    t.index ["slug"], name: "index_chapters_on_slug", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.datetime "created_at"
+    t.string "scope"
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "chapters", "books"

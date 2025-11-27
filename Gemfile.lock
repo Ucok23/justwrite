@@ -79,6 +79,7 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     base64 (0.3.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     bigdecimal (3.3.1)
     bindex (0.8.1)
@@ -119,6 +120,8 @@ GEM
     ffi (1.17.2-arm-linux-musl)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
+    friendly_id (5.5.1)
+      activerecord (>= 4.0.0)
     fugit (1.12.1)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
@@ -264,6 +267,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
+    redcarpet (3.6.1)
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
@@ -381,11 +385,13 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   brakeman
   bundler-audit
   capybara
   debug
+  friendly_id (~> 5.4)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
@@ -393,6 +399,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.1)
+  redcarpet (~> 3.6)
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable
