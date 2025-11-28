@@ -1,8 +1,5 @@
 <div class="page-header">
   <h1>My Books</h1>
-  <% if current_user&.admin? %>
-    <%= render 'shared/button', text: 'New Book', path: new_book_path, variant: 'primary' %>
-  <% end %>
 </div>
 
 <div class="books-grid">
@@ -16,6 +13,12 @@
           <p>by <%= book.author %></p>
         </div>
       <% end %>
+    <% end %>
+  <% end %>
+
+  <% if current_user&.admin? %>
+    <%= link_to new_book_path, class: "card add-book-button" do %>
+      <span>+</span>
     <% end %>
   <% end %>
 </div>

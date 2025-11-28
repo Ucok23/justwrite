@@ -1,23 +1,27 @@
 <div class="page-header">
   <h1><%= @book.title %></h1>
-  <% if current_user&.admin? %>
-    <div>
-      <%= render 'shared/button', text: 'Edit Book', path: edit_book_path(@book), variant: 'secondary' %>
-      <%= render 'shared/button', text: 'New Chapter', path: new_book_chapter_path(@book), variant: 'primary' %>
-    </div>
-  <% end %>
 </div>
 
 <div class="book-grid">
-  <% if @book.cover_image.attached? %>
-    <%= link_to @book, class: "book-cover-item" do %>
+  <% if current_user&.admin? && @book.cover_image.attached? %>
+    <%= link_to edit_book_path(@book), class: "book-cover-item" do %>
       <%= image_tag(@book.cover_image.variant(resize_to_fill: [300, 450])) %>
     <% end %>
+  <% elsif @book.cover_image.attached? %>
+    <div class="book-cover-item">
+      <%= image_tag(@book.cover_image.variant(resize_to_fill: [300, 450])) %>
+    </div>
   <% end %>
 
   <% @book.chapters.order(:position).each do |chapter| %>
     <%= link_to([@book, chapter], class: "chapter-page") do %>
       <h3><%= chapter.title %></h3>
+    <% end %>
+  <% end %>
+
+  <% if current_user&.admin? %>
+    <%= link_to new_book_chapter_path(@book), class: "chapter-page add-chapter-button" do %>
+      <span>+</span>
     <% end %>
   <% end %>
 </div>
