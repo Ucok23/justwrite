@@ -195,8 +195,18 @@ textarea.form-control {
 
 .app-header .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.app-header .logo {
+  text-align: center;
+}
+
+.app-header .user-session {
+  position: absolute;
+  right: 20px;
 }
 
 .app-header .logo a {

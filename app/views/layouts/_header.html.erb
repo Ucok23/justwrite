@@ -3,20 +3,12 @@
     <div class="logo">
       <%= link_to 'Justwrite', root_path %>
     </div>
-    <nav class="main-nav">
-      <ul>
-        <li><%= link_to 'Books', books_path %></li>
-        <!-- Add more navigation links here as needed -->
-      </ul>
-    </nav>
     <div class="user-session">
       <% if logged_in? %>
         <span><%= current_user.name %></span>
         <%= button_to "Log Out", logout_path, method: :delete, class: "btn btn-ghost" %>
-      <% else %>
-        <%= link_to "Sign Up", signup_path, class: "btn btn-ghost" %>
-        <%= link_to "Log In", login_path, class: "btn btn-primary" %>
       <% end %>
+
     </div>
   </div>
 </header>
