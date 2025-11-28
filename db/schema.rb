@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_27_232528) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_28_014750) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -74,6 +74,13 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_27_232528) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.boolean "allow_sign_up", default: true
+    t.datetime "created_at", null: false
+    t.boolean "default_book_requires_login", default: true
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

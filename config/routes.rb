@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post "/uploads", to: "uploads#create"
+  resource :settings, only: [ :edit, :update ]
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

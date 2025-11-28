@@ -6,6 +6,9 @@
     <div class="user-session">
       <% if logged_in? %>
         <span><%= current_user.name %></span>
+        <% if current_user.admin? %>
+          <%= link_to "Settings", edit_settings_path, class: "btn btn-ghost" %>
+        <% end %>
         <%= button_to "Log Out", logout_path, method: :delete, class: "btn btn-ghost" %>
       <% end %>
 

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :check_if_signup_is_allowed, only: [ :new, :create ]
+
   def new
     @user = User.new
   end
@@ -17,5 +19,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def check_if_signup_is_allowed
+    redirect_to root_path, alert: "Sign up is not allowed." unless Setting.instance.allow_sign_up
   end
 end

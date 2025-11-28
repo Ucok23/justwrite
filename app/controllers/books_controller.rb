@@ -14,7 +14,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book = Book.new(requires_login: Setting.instance.default_book_requires_login)
   end
 
   def create
