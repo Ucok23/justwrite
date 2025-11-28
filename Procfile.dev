@@ -1,1 +1,1 @@
-web: bin/rails server
+web: unset PORT && bin/rails server -p 4000

@@ -19,4 +19,8 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def markdown_to_text(text)
+    strip_tags(markdown(text.to_s))
+  end
 end

@@ -2,6 +2,62 @@
  * This is a manifest file that'll be compiled into application.css.
  */
 
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 40px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.book-cover-item {
+  width: 300px;
+  height: 450px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chapter-page {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 450px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.chapter-page h3 {
+  margin: 0;
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+}
+
+.chapter-page p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+
 /* app/assets/stylesheets/components/_buttons.css */
 .btn {
   display: inline-block;
@@ -214,6 +270,23 @@ a:hover {
 }
 
 .book-card {
+  padding: 0;
+  overflow: hidden;
+  /* Ensures the image respects the border-radius */
+}
+
+.book-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.book-card:hover .book-card__image {
+  transform: scale(1.05);
+}
+
+.book-card__content {
   padding: 1.5rem;
 }
 
@@ -227,6 +300,14 @@ a:hover {
 .book-card p {
   color: #6c757d;
   margin-bottom: 1rem;
+}
+
+.book-cover-show {
+  max-width: 300px;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Book Show Page Styles */
@@ -255,32 +336,73 @@ a:hover {
   font-weight: bold;
 }
 
-/* Chapter Show Page Styles */
-.chapter-content {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
+.reading-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-.chapter-content h1,
-.chapter-content h2,
-.chapter-content h3 {
+.reading-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.reading-header-start .back-link {
   font-weight: bold;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  color: #555;
 }
 
-.chapter-content p {
-  margin-bottom: 1.5rem;
+.reading-header-end .admin-actions {
+  display: flex;
+  gap: 10px;
 }
 
-.chapter-content a {
-  text-decoration: underline;
+.reading-content {
+  background-color: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  padding: 40px 60px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
 }
 
-.chapter-content a:hover {
-  color: #0056b3;
+.reading-content h1 {
+  font-size: 2.5rem;
+  font-family: 'Lora', serif;
+  margin-bottom: 10px;
+  text-align: center;
 }
+
+.chapter-meta {
+  text-align: center;
+  color: #888;
+  margin-bottom: 40px;
+}
+
+.chapter-meta span {
+  margin: 0 5px;
+}
+
+.chapter-body {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.chapter-body h2,
+.chapter-body h3,
+.chapter-body h4 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.chapter-body p {
+  margin-bottom: 1.5em;
+}
+
 
 /* Form Styles */
 .form-group {
