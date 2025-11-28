@@ -1,0 +1,51 @@
+require "test_helper"
+
+class BooksControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @user = users(:one)
+    @user.update!(password: "password", password_confirmation: "password")
+    @book = books(:one)
+    post login_url, params: { email: @user.email, password: "password" }
+  end
+
+  test "should get index" do
+    get books_url
+    assert_response :success
+  end
+
+  test "should get new" do
+    get new_book_url
+    assert_response :success
+  end
+
+  test "should create book" do
+    assert_difference("Book.count") do
+      post books_url, params: { book: { title: "New Book" } }
+    end
+
+    assert_redirected_to book_url(Book.last)
+  end
+
+  test "should show book" do
+    get book_url(@book)
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get edit_book_url(@book)
+    assert_response :success
+  end
+
+  test "should update book" do
+    patch book_url(@book), params: { book: { title: @book.title } }
+    assert_redirected_to book_url(@book)
+  end
+
+  test "should destroy book" do
+    assert_difference("Book.count", -1) do
+      delete book_url(@book)
+    end
+
+    assert_redirected_to books_url
+  end
+end

@@ -1,0 +1,21 @@
+<div class="books-grid">
+  <% @books.each do |book| %>
+    <%= link_to book, class: "card book-card" do %>
+      <% if book.cover_image.attached? %>
+        <%= image_tag book.cover_image.variant(resize_to_limit: [280, 420]), class: "book-card__image" %>
+      <% else %>
+        <div class="book-card__content">
+          <h2><%= book.title %></h2>
+          <p>by <%= book.author %></p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if current_user&.admin? %>
+    <%= link_to new_book_path, class: "card add-book-button" do %>
+      <span>+</span>
+    <% end %>
+  <% end %>
+</div>
+

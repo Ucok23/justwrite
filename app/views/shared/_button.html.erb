@@ -1,0 +1,15 @@
+<%# app/views/shared/_button.html.erb %>
+<%
+  variant = local_assigns.fetch(:variant, "primary")
+  variant_class = "btn-#{variant}"
+  html_options = defined?(options) ? options.dup : {}
+  html_options[:class] = [html_options[:class], "btn", variant_class].compact.join(" ")
+%>
+
+<% if defined?(path) && path.present? %>
+  <% html_options[:method] = html_options.delete(:method) || :get %>
+  <%= link_to text, path, html_options %>
+<% else %>
+  <% html_options[:type] = html_options.delete(:type) || 'submit' %>
+  <%= button_tag text, html_options %>
+<% end %>
