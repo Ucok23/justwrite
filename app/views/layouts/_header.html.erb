@@ -7,9 +7,13 @@
       <% if logged_in? %>
         <span><%= current_user.name %></span>
         <% if current_user.admin? %>
-          <%= link_to "Settings", edit_settings_path, class: "btn btn-ghost" %>
+          <%= link_to edit_settings_path, class: "btn btn-ghost", title: "Settings" do %>
+            <%= icon "cog-6-tooth", class: "icon" %>
+          <% end %>
         <% end %>
-        <%= button_to "Log Out", logout_path, method: :delete, class: "btn btn-ghost" %>
+        <%= button_to logout_path, method: :delete, class: "btn btn-ghost", title: "Log Out" do %>
+          <%= icon "arrow-left-on-rectangle", class: "icon" %>
+        <% end %>
       <% end %>
 
     </div>

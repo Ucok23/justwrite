@@ -247,6 +247,22 @@ textarea.form-control {
 .app-header .user-session {
   position: absolute;
   right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-header .user-session .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  /* Adjust padding for icon-only buttons */
+}
+
+.app-header .user-session .icon {
+  width: 20px;
+  height: 20px;
 }
 
 .app-header .logo a {

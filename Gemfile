@@ -69,3 +69,4 @@ end
 gem "friendly_id", "~> 5.4"
 gem "redcarpet", "~> 3.6"
 gem "cloudinary", "~> 1.25"
+gem "rails_icons"
