@@ -265,6 +265,22 @@ textarea.form-control {
   height: 20px;
 }
 
+/* Icon Sizes */
+.size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .app-header .logo a {
   font-size: 1.5rem;
   font-weight: bold;
