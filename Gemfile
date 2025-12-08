@@ -66,6 +66,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "friendly_id", "~> 5.4"
+gem "friendly_id", "~> 5.6"
 gem "redcarpet", "~> 3.6"
 gem "cloudinary", "~> 1.25"
